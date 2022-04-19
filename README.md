@@ -6,7 +6,7 @@ Install all dependencies:
 ```
 pip install -r requirements.txt
 ```
-1. Setup a database (default is PostgreSQL)
+1. Setup a database (default is SQLite)
 2. Configure the config file in this path: **edu_tatar_bot/config/config.ini** (delete .example.)
 
 ## Run
