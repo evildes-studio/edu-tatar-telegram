@@ -39,6 +39,8 @@ class EduTatar:
         logging.info(s)
         logging.info(s.text)
         logging.info(s.content)
+
+        self.session = session
         return session
 
 
