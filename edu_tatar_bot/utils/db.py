@@ -22,7 +22,6 @@ class User(Base):
     chat_id = Column(BigInteger, unique=True)
     username = Column(String)
     fullname = Column(String)
-    balance = Column(Float, default=0)
     date_join = Column(DateTime, default=datetime.datetime.now())
 
     edu_tatar = relation("EduTatarUser", back_populates='user')
