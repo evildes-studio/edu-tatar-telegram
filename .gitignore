@@ -1,3 +1,4 @@
 /.idea
 /edu_tatar_bot.egg-info
 /edu_tatar_bot/config/config.ini
+/database.db
