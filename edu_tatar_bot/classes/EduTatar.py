@@ -8,9 +8,9 @@ config.read('config/config.ini', encoding="utf8")
 
 
 class EduTatar:
-    def __init__(self):
-        self.login = None
-        self.password = None
+    def __init__(self, login, password, proxy=None):
+        self.login = login
+        self.password = password
 
         self.name = None
         self.surname = None
@@ -20,10 +20,16 @@ class EduTatar:
         self.session = None
         self.parser = None
 
+        self.proxy = proxy
+
         self.auth()
 
     def auth(self):
         session = requests.Session()
+
+        if self.proxy:
+            session.proxies.update(self.proxy)
+
         user_agent = GET_UA()
         session.get(config['edu_tatar']['url_login'], headers={
             'User-Agent': user_agent
