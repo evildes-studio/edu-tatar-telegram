@@ -2,3 +2,6 @@
 /edu_tatar_bot.egg-info
 /edu_tatar_bot/config/config.ini
 /database.db
+
+#unit tests
+/edu_tatar_bot/tests/test_data.json
