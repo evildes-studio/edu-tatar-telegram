@@ -37,6 +37,8 @@ class EduTatarUser(Base):
     password = Column(String)
     name = Column(String)
     surname = Column(String)
+    middle_name = Column(String)
+    school = Column(String)
     grade = Column(String)
 
     marks_amount = Column(Integer, default=0)
