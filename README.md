@@ -2,8 +2,9 @@
 This bot allows to get watch timetables, marks, reminders and whole statistics about your study based on edu.tatar.ru
 
 ## Installation
-Install all dependencies:
+Install all dependencies (from root directory):
 ```
+pip install -e .
 pip install -r requirements.txt
 ```
 1. Setup a database (default is SQLite)
