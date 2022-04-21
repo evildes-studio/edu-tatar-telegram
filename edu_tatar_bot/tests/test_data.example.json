@@ -1,5 +1,12 @@
 {
   "edu_login": "",
   "edu_password": "",
-  "proxy": {"socks4": "host:port"}
+  "proxy": {"socks4": "host:port"},
+
+  "parser": {
+    "get_user_info": {
+      "keys": [],
+      "valid_data": []
+    }
+  }
 }
