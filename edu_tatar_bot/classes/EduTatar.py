@@ -22,7 +22,7 @@ class EduTatar:
 
         self.proxy = proxy
 
-        self.auth()
+        # self.auth()
 
     def auth(self):
         session = requests.Session()

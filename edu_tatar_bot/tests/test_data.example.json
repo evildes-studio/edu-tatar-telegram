@@ -1,0 +1,5 @@
+{
+  "edu_login": "",
+  "edu_password": "",
+  "proxy": {"socks4": "host:port"}
+}
