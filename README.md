@@ -1,5 +1,5 @@
 # EduTatar client as Telegram Bot
-This bot allows to get watch timetables, marks, reminders and whole statistics about your study based on edu.tatar.ru
+This bot allows watching timetables, marks, getting reminders and whole statistics about your study based on edu.tatar.ru
 
 ## Installation
 Install all dependencies (from root directory):
