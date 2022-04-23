@@ -7,6 +7,15 @@
     "get_user_info": {
       "keys": [],
       "valid_data": []
+    },
+    "get_marks": {
+      "subject": null,
+      "term": null,
+      "date": null,
+      "limit": null,
+      "mark_info": false,
+      "clear_null": false,
+      "valid_data": []
     }
   }
 }
