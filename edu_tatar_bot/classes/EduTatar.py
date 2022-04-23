@@ -2,6 +2,7 @@ import requests
 import random
 from configparser import ConfigParser
 import logging
+from requests.sessions import Session
 
 config = ConfigParser()
 config.read('config/config.ini', encoding="utf8")
@@ -24,7 +25,7 @@ class EduTatar:
 
         # self.auth()
 
-    def auth(self):
+    def auth(self) -> Session:
         session = requests.Session()
 
         if self.proxy:
@@ -42,10 +43,7 @@ class EduTatar:
                              config['edu_tatar']['login_name']: self.login,
                              config['edu_tatar']['password_name']: self.password
                          })
-        logging.info(s)
-        logging.info(s.text)
-        logging.info(s.content)
-
+        logging.debug(f"[!] The user's authentication status is [{s}]")
         self.session = session
         return session
 
