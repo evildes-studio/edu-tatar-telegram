@@ -46,7 +46,7 @@ class Parser:
 
         return self.user_info
 
-    def get_marks(self, subject: str = None, term: int = None, date: str = None,
+    def get_marks(self, subject: str = None, term: int = None, date: datetime = None,
                   limit: int = None, mark_info: bool = False, clear_null: bool = False) -> [list, int]:
         """
         Returns all marks
@@ -62,8 +62,8 @@ class Parser:
         marks = []
 
         if date:
-            date_ = datetime.datetime.strptime(date, "%d.%m.%Y")
-            timestamp = datetime.datetime.timestamp(date_)
+            date = date.replace(hour=0, minute=0, second=0, microsecond=0)
+            timestamp = int(datetime.datetime.timestamp(date))
 
             result = self.session.get(base_url + f"day?for={timestamp}")
             html = BeautifulSoup(result.content, 'html.parser')
