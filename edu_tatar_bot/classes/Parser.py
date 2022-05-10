@@ -15,6 +15,7 @@ class Parser:
         """
         self.session = session
         self.user_info = {}
+        self.grade = None
 
     def get_user_info(self, keys: list = None) -> [dict, list]:
         """
@@ -46,7 +47,7 @@ class Parser:
         return self.user_info
 
     def get_marks(self, subject: str = None, term: int = None, date: str = None,
-                  limit: int = -1, mark_info: bool = False, clear_null: bool = False) -> [list, int]:
+                  limit: int = None, mark_info: bool = False, clear_null: bool = False) -> [list, int]:
         """
         Returns all marks
         :param subject: by certain subject name
@@ -77,7 +78,7 @@ class Parser:
                     "marks": marks_
                 }
 
-                if subject_name.lower() == subject.lower():
+                if subject and subject_name.lower() == subject.lower():
                     marks.append(object_)
                     break
                 elif subject:
@@ -103,7 +104,7 @@ class Parser:
                     "marks": marks_
                 }
 
-                if subject_name.lower() == subject.lower():
+                if subject and subject_name.lower() == subject.lower():
                     marks.append(object_)
                     break
                 elif subject:
@@ -111,7 +112,7 @@ class Parser:
                 else:
                     marks.append(object_)
 
-        if not mark_info:
+        if date and not mark_info:
             for i, item in enumerate(marks):
                 marks_ = list(map(lambda x: x['value'], item['marks']))
                 marks[i] = marks_
@@ -130,6 +131,15 @@ class Parser:
 
         logging.debug(f"[!] Got marks from {'term' if term else 'date'}: {marks[:limit]}")
         return marks[:limit]
+
+    def get_grade(self):
+        if not self.grade:
+            result = self.session.get("https://edu.tatar.ru/user/diary/term")
+            html = BeautifulSoup(result.content, 'html.parser')
+            head = html.find(name="div", attrs={"class": "xdiary"}).find_next_sibling().get_text().strip()
+            self.grade = head.split("Класс: ")[-1]
+
+        return self.grade
 
 
 def get_dict_key(dict_, value):
