@@ -12,16 +12,8 @@ class EduTatar:
     def __init__(self, login, password, proxy=None):
         self.login = login
         self.password = password
-
-        self.name = None
-        self.surname = None
-        self.grade = None
-        self.pupil_id = None
-
-        self.session = None
-        self.parser = None
-
         self.proxy = proxy
+        self.session = None
 
         # self.auth()
 
