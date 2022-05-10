@@ -36,9 +36,12 @@ class Parser:
 
         if keys:
             temp = {}
-            for key in keys:
-                temp[key] = self.user_info[key]
-            return list(temp.values())
+            try:
+                for key in keys:
+                    temp[key] = self.user_info[key]
+                return list(temp.values())
+            except KeyError:
+                return None
 
         return self.user_info
 
