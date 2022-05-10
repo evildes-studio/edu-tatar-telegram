@@ -21,3 +21,10 @@ def validate_keyboard():
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     keyboard.row('Все верно ✅', 'Отмена')
     return keyboard
+
+
+def diary_keyboard():
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.row('Расписание 📆', 'Оценки 🧾')
+    keyboard.row('Отмена')
+    return keyboard
